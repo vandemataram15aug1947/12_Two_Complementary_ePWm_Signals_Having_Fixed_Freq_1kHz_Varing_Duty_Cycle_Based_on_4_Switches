@@ -1,5 +1,3 @@
-/*Maaz khan
-  Reg No : 19jzele0320
 
 /////////////////////////////// Task-12  ////////////////////////////////////////////////////////////
 
@@ -59,7 +57,7 @@ void main(void)
     Interrupt_initVectorTable();
 
 
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     // This is needed to write to EALLOW protected registers
     EALLOW;
@@ -80,7 +78,7 @@ void main(void)
     IER |= M_INT1; // M- means to Enable
     IER |= M_INT12; // M- means to Enable
 
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     // Enable  ,XINT1,XINT2,XINT3 ,XINT4    in the PIE: Group 1 & 12 __interrupt 4,5,1,2
 
@@ -95,7 +93,7 @@ void main(void)
     // Enable PIE Group 12 INT2
     PieCtrlRegs.PIEIER12.bit.INTx2 = 1;
 
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     //Configure GPIO67,GPIO22,GPIO11,GPIO14 FOR xINT1,xINT2xINT3,xINT4
     GPIO_SetupXINT1Gpio(67);
@@ -103,7 +101,7 @@ void main(void)
     GPIO_SetupXINT3Gpio(11);
     GPIO_SetupXINT4Gpio(14);
 
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     // Check switch state for falling edge
     XintRegs.XINT1CR.bit.POLARITY = 1;          // Rising edge interrupt
@@ -120,7 +118,7 @@ void main(void)
     initEPWM1();
     initEPWM2();
 
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     //Disable xINT1,xINT2,xINT3,xINT4
     XintRegs.XINT1CR.bit.ENABLE = 0;            // Disable XINT1
@@ -136,7 +134,7 @@ void main(void)
 
     while(1){
 
-        //////////////  MAAZ KHAN  ///////////////////
+        //////////////  Vande  ///////////////////
 
         // Enable XINT1
         XintRegs.XINT1CR.bit.ENABLE = 1;
@@ -156,7 +154,7 @@ void main(void)
 
 void initEPWM1()
 {
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     // Set frequency 30KHz
         EPwm1Regs.TBPRD = 1666.66;
@@ -174,7 +172,7 @@ void initEPWM1()
        EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
        EPwm1Regs.TBCTL.bit.CLKDIV = TB_DIV1;
 
-       //////////////  MAAZ KHAN  ///////////////////
+       //////////////  Vande  ///////////////////
 
        ///////////     These Two Register shows Complementary PWM     ////////////
        EPwm1Regs.AQCTLA.bit.CAU = AQ_SET;    // Compare UP
@@ -182,7 +180,7 @@ void initEPWM1()
 }
 void initEPWM2()
 {
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
 
     // Set frequency 30KHz
         EPwm2Regs.TBPRD = 1666.66;
@@ -200,7 +198,7 @@ void initEPWM2()
        EPwm2Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
        EPwm2Regs.TBCTL.bit.CLKDIV = TB_DIV1;
 
-       //////////////  MAAZ KHAN  ///////////////////
+       //////////////  Vande  ///////////////////
 
        ///////////     These Two Register shows Complementary PWM     ////////////
        EPwm2Regs.AQCTLA.bit.CAU = AQ_CLEAR;  // Compare UP
@@ -210,7 +208,7 @@ void initEPWM2()
 
 void PinMux_init()
 {
-    //////////////  MAAZ KHAN  ///////////////////
+    //////////////  Vande  ///////////////////
     EALLOW;
     //EPWM1 -> myEPWM1 Pinmux
     // gpio 15 to gpio 0  general purpouse I/O
@@ -221,7 +219,7 @@ void PinMux_init()
 
 }
 
-//////////////  MAAZ KHAN  ///////////////////
+//////////////  Vande  ///////////////////
 
 __interrupt void xINT1_isr(void)
 {
@@ -259,7 +257,7 @@ __interrupt void xINT1_isr(void)
       PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }
 
-//////////////  MAAZ KHAN  ///////////////////
+//////////////  Vande  ///////////////////
 
 __interrupt void xINT2_isr(void)
 {
@@ -299,7 +297,7 @@ __interrupt void xINT2_isr(void)
 
 }
 
-//////////////  MAAZ KHAN  ///////////////////
+//////////////  Vande  ///////////////////
 
 __interrupt void xINT3_isr(void)
 {
@@ -339,7 +337,7 @@ __interrupt void xINT3_isr(void)
 
 }
 
-//////////////  MAAZ KHAN  ///////////////////
+//////////////  Vande  ///////////////////
 
 __interrupt void xINT4_isr(void)
 {
